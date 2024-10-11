@@ -9,7 +9,7 @@ const App = () => {
   const [editid, seteditid] = useState(null)
 
   const getdata = async()=>{
-    const response = await fetch('http://localhost:5000')
+    const response = await fetch('https://todoapp-mern-7txu.onrender.com')
       const result = await response.json()
       // console.log(result)
       if (result.status == 200){
@@ -24,7 +24,7 @@ const App = () => {
       return;
     }  
     
-    const response = await fetch("http://localhost:5000",{
+    const response = await fetch("https://todoapp-mern-7txu.onrender.com",{
       method:'POST',
       headers:{
         "Content-type":"application/json",
@@ -44,7 +44,7 @@ const App = () => {
 
   const putdata = async (editid) => {
     
-    const response = await fetch(`http://localhost:5000?index=${editid}`,{
+    const response = await fetch(`https://todoapp-mern-7txu.onrender.com?index=${editid}`,{
       method:'PUT',
       headers:{
         "Content-type":"application/json",
@@ -62,7 +62,7 @@ const App = () => {
 
 
   const deletedata = async (id) => {
-    await fetch(`http://localhost:5000/${id}`,{
+    await fetch(`https://todoapp-mern-7txu.onrender.com/${id}`,{
       method:'DELETE',      
     })
     getdata()
