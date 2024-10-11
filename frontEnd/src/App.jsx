@@ -75,8 +75,8 @@ const App = () => {
   return (
     <>
       <div className='container'>
-          <h1 className='fs-3'>What is the Tasks Today</h1>
-          <input value={ipvalue} onChange={(e)=>{setipvalue(e.target.value)}} type="text" required />
+          <h1 className='fs-3'>Note Your Tasks Here !</h1>
+          <input value={ipvalue} onChange={(e)=>{setipvalue(e.target.value)}} type="text" placeholder='Type here...' required />
       
           {editid !== null ? (
             <button className='adup-btn bg-success' onClick={() => { putdata(editid) }}>Update</button>
@@ -87,12 +87,12 @@ const App = () => {
               return (
                 <div className='d-flex mt-4 todo-cont' key={item._id}>
                   <div>
-                    <h5> {item.ipvalue} </h5>
+                    <h5 className='todo-text' onClick={()=>{seteditid(item._id); setipvalue(item.ipvalue)}} > {item.ipvalue} </h5>
                   </div>
                    
                    <div className='etdlbtns'>
-                   <button className='etdl-btn fs-5 bg-warning ' onClick={()=>{seteditid(item._id); setipvalue(item.ipvalue)}}> <MdEdit /> </button>
-                   <button className='etdl-btn fs-5 bg-danger' onClick={()=>{deletedata(item._id)}}> <MdDeleteForever /> </button>
+                   <button className='etdl-btn  bg-warning ' onClick={()=>{seteditid(item._id); setipvalue(item.ipvalue)}}> <MdEdit /> </button>
+                   <button className='etdl-btn  bg-danger' onClick={()=>{deletedata(item._id)}}> <MdDeleteForever /> </button>
                    </div>                   
                 </div>                
               )
